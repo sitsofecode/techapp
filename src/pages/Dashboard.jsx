@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Chart from "react-apexcharts";
 
 
@@ -56,17 +56,26 @@ function Dashboard() {
             },
             stroke: {
                 curve: 'smooth',
-                        }
+            }
         },
-        series: data,
+        series: [],
     }
     );
+
+    // essaie numero ?? mise a jours des graph en fonction des checked
+    useEffect(() => {
+        const checkedData = data
+            .filter(item => item.checked)
+            .map(item => ({ name: item.name, data: item.data }));
+
+        setChart(prevState => ({ ...prevState, series: checkedData }));
+    }, [data]);
 
     const updateChecked = (index) => {
         console.log(index)
         setData(
             data.map((item, currentIndex) =>
-                currentIndex === index ? { ...item, checked: !item.checked, data: item.checked && [] } : item,
+                currentIndex === index ? { ...item, checked: !item.checked } : item,
             ));
     }
     console.log(data)
@@ -91,7 +100,7 @@ function Dashboard() {
                     />
                     <div className='flex space-x-5'>
                         {list}
-                    </div> 
+                    </div>
                 </div>
                 <div className='rounded-lg p-4 bg-headerSliderLightColor dark:bg-headerSliderDarkColor '>
                     <Chart

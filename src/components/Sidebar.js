@@ -6,9 +6,12 @@ function Sidebar() {
     const linkIconClass = " mx-4 text-xl"
 
     const activeStyle = {
-        // borderLeft: "solid #fff ",
-        // color: "#fff"
-         color: localStorage.getItem('theme') === 'dark' ? "#ffffff" : "#000000"
+        borderLeft: "solid #7C3AED 5 px ",
+        borderRdius: "20px",
+        padding: "10px",
+        // color: "#fff",
+        color: localStorage.getItem('theme') === 'dark' ? "#ffffff" : "#000000",
+        transitionDuration: " 1s"
     }
 
 
@@ -40,7 +43,7 @@ function Sidebar() {
     const link = Link.map((items, index) => {
 
         return (
-            <li key={index} className='py-3 px-0'>
+            <li key={index} className='py-3 px-0 flex h-15'>
                 <NavLink to={items.route} end
                     style={({ isActive }) => isActive ? activeStyle : null}>
                     <span className='flex'> {items.icon}<span>{items.Title}</span></span>

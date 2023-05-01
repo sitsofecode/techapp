@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import Layout from './components/Layout';
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider , } from 'react-router-dom';
 import Comparatif from './pages/Comparatif';
 import Source from './pages/Source';
 import Dashboard from './pages/Dashboard';
 import Setting from './pages/Setting';
+import './App.css';
 
 
 function App() {
-  // const [theme, setTheme] = useState('light')
 
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route path='/' element={<Layout />}>
+    <Route path='/' element={<Layout />} >
       <Route index element={<Dashboard />} />
       <Route path='comparatif' element={<Comparatif />} />
       <Route path='source' element={<Source />} />

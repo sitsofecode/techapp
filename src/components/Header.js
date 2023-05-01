@@ -11,9 +11,9 @@ function Header(props) {
 
 
     return (
-        <div className='h-16 flex  lg:block   justify-between w-full p-5 bg-headerLightSliderColo dark:bg-headerSliderDarkColor   shadow-lg'>
+        <div className='h-16 flex  lg:block justify-between w-full p-5 bg-headerLightSliderColo dark:bg-headerSliderDarkColor '>
             <div className=' lg:hidden '>
-                <AiOutlineMenu/>
+                <AiOutlineMenu />
             </div>
             <div className='flex justify-end space-x-5  text-xl'>
                 <button onClick={props.toggleDarkMode} className='dark:text-gray-400'> { localStorage.getItem('theme') !== 'dark' ? <MdSunny /> : <MdBrightness3 className='text-violet-700'/>} </button>
